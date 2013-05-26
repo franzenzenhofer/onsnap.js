@@ -94,7 +94,7 @@ and trigger the nagbar
 
     #coffee -c onsnap.litcoffee
 
-creates the onsnap.js file.
+creates the *onsnap.js* file.
 
 actually onsnap.litcoffee is just a symblic link to this README.md.
 
