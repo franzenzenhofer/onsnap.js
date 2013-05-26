@@ -1,4 +1,4 @@
-#onSnap.js - creating a Snap event
+#onSnap.js - throws a Snap event
 
 the idea is simple: **throw a snap event as soon as someone snaps**. simple enough.
 this is written litcoffee style (literate programming + coffeescript), so yes, this README.md is the acutal sourcecode.
