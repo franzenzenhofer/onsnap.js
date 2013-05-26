@@ -138,5 +138,7 @@ freely, subject to the following restrictions:
    3. This notice may not be removed or altered from any source
    distribution.
 
-the images in the presentation are creative common share alike non-commercial attribution franz enzenhofer licensed.
+the **images** in the presentation are **creative common share alike non-commercial attribution** franz enzenhofer licensed.
+
+forks welcome
 
