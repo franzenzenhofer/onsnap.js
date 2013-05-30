@@ -19,6 +19,10 @@
     return s;
   };
 
+  navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+
+  window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.msAudioContext;
+
   throwSnapEvent = function() {
     var SnapEvent;
 
@@ -32,7 +36,7 @@
   gotStream = function(stream) {
     var analyser, context, source;
 
-    context = new webkitAudioContext();
+    context = new AudioContext();
     analyser = context.createAnalyser();
     source = context.createMediaStreamSource(stream);
     source.connect(analyser);
@@ -65,8 +69,8 @@
     }
   };
 
-  navigator.webkitGetUserMedia({
+  navigator.getUserMedia({
     audio: true
-  }, gotStream);
+  }, gotStream, (function() {}));
 
 }).call(this);

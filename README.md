@@ -40,6 +40,20 @@ it's ugly, because the UInt8Array does not have a reduce function (not a joke)
         s = s+ar[n]
       return s
 
+two idiotic **namespace shims**, because the browser vendors did this to us
+
+    navigator.getUserMedia = 
+      navigator.getUserMedia or
+      navigator.webkitGetUserMedia or
+      navigator.mozGetUserMedia or
+      navigator.msGetUserMedia
+
+    window.AudioContext =
+      window.AudioContext or
+      window.webkitAudioContext or
+      window.mozAudioContext or
+      window.msAudioContext
+
 after all is said and done, and somebody snapped, let's throw a snap event.
 
     throwSnapEvent = () -> 
@@ -54,7 +68,7 @@ basically we plug an audio stream into the method
 and handly something more useable (an analyser based on the audio stream) to a watch loop
 
     gotStream = (stream) ->
-      context = new webkitAudioContext()
+      context = new AudioContext()
       analyser = context.createAnalyser()
       source = context.createMediaStreamSource( stream )
       source.connect(analyser);
@@ -95,7 +109,7 @@ but the thing is, we only need one snap event, so we wait some time, until we li
 
 and trigger the nagbar
 
-    navigator.webkitGetUserMedia( {audio:true}, gotStream )
+    navigator.getUserMedia( {audio:true}, gotStream, (()->) )
     #document.addEventListener("snap", (()->alert("snap")))
 
 ##compile this whole thing
